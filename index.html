@@ -1,0 +1,83 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>DIG4503 &ndash; Frank FitzGerald &ndash; Semester Project</title>
+	<meta name="description" content="Frank FitzGerald's DIG4503 Semester Project">
+	<meta name="author" content="Frank FitzGerald">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="shortcut icon" href="http://www.frankfitzgerald.net/youscrobble/img/logo.png">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<!-- JavaScript files at top of document, in <head> tags, as specified -->
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/libs/jquery.pajinate.min.js"></script>
+	<script src="js/libs/jquery.fitvids.js"></script>
+	<script src="js/libs/arbor.js"></script>
+	<script src="js/libs/arbor-tween.js"></script>
+	<script src="js/libs/arbor-graphics.js"></script>
+	<script src="js/semesterProject.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+	<div id="header-container">
+		<header class="wrapper clearfix">
+			<h1 id="title">DIG4503 Semester Project - YouScrobble</h1>
+			<img id="logo" src="img/logo.png" alt="DIG4503 Semester Project - YouScrobble Logo"/>
+		    <form action="#" method="post">
+		      <fieldset>
+		        <label for="search">Enter an Artist to search for using the YouTube &amp; last.fm APIs</label>
+		        <input type="text" id="search" name="search" placeholder="Search for Artists" value=""/>
+		        <input type="submit" value="Search" class="solid"/>
+		      </fieldset>
+		    </form>
+		</header>
+	</div>
+	<div id="main-container">
+		<div id="main" class="wrapper clearfix">
+			<div id="re-search">
+				<a class="close" href="#">X</a>
+				<p>Do you want to search for: <span></span></p>
+				<ul>
+					<li><a class="yes" href="#">Yes</a></li>
+					<li><a class="no" href="#">No</a></li>
+				</ul>
+			</div>
+			<article class="clearfix">
+				<header id="page_container">
+					<div class="info_text"></div>
+					<div class="page_navigation"></div>
+					<div id="responseDiv">
+						<h3>Search for one of your favorite artists above to see their music videos here &amp; similar artists below.</h3>
+					</div>
+				</header>
+				<footer id="arbor-container" class="clearfix">
+					<canvas id="viewport"></canvas>	
+				</footer>
+			</article>
+			
+			<aside id="responseDiv2">
+				<h3>You will also discover a little about your searched artists here ^_^</h3>
+			</aside>
+			
+		</div> <!-- #main -->
+	</div> <!-- #main-container -->
+
+	<div id="footer-container" class="clearfix">
+		<footer class="wrapper">
+			<h3>Created by Frank FitzGerald for a UCF Digital Media Course</h3>
+		</footer>
+	</div>
+</body>
+</html>
