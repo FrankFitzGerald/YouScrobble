@@ -93,13 +93,13 @@ $(window).bind("load", function() {
 
  * Adjust colour pallete
 
- * DONE: Ajax loader
+ * DONE BUT NOT PERFECT: Ajax loader
 
  * DONE: Clear canvas on search
 
  * DONE: Add link to data source + arbor
 
- * DONE: New API Key
+ * DONE: API Key
 
  * DONE: Add cursors
 
@@ -109,7 +109,7 @@ $(window).bind("load", function() {
 
  * DONE: Add resize
 
- * DONE: Click word re-search
+ * NOT DONE: Click word re-search
 
  */
 
@@ -135,7 +135,7 @@ var visSimilarArtists = function(){
 
     //last.fm settings
 
-    var apiKey = "a4fa2456aad2cd68975c95fd9f3fc3a6";
+    var apiKey = "YOUR_API_KEY";
 
        
 
