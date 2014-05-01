@@ -1,0 +1,39 @@
+ 
+# work-around 405 for POST to static URL
+upstream my-static-server-name {
+  server 11.111.111.111:8080;
+}
+
+.
+.
+.
+
+  # A static page can not handle POST, so nginx return 405.
+  # There is workaround:
+
+  error_page   405   =200 @405;
+
+  location = @405 {
+
+    index  index.html index.htm;
+    # needed to forward user's IP address to rails
+    proxy_set_header  X-Real-IP  $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_max_temp_file_size 0;
+    proxy_next_upstream error;
+    proxy_method GET;
+
+    if (-f $request_filename) {
+      break;
+    }
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+    if (!-f $request_filename) {
+      proxy_pass http://frankfitzgerald.github.io/YouScrobble;
+      break;
+    }
+  }
+
