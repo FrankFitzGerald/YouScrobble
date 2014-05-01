@@ -52,7 +52,7 @@ $(document).ready(function() {
 			// error: function(responseData) {
 			// 	console.log('the getYoutube.php ajax call failed');
 			// }
-		});
+		// });
 	});
 	$('form').bind('submit',function(e) {
 		e.preventDefault();
