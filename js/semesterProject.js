@@ -10,7 +10,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
-			type: 'get',
+			type: 'post',
 			url: 'getYoutube.php',
 			success: function(responseData) {
 				$('#responseDiv').html(responseData);
@@ -30,7 +30,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
-			type: 'get',
+			type: 'post',
 			url: 'getLastFM.php',
 			success: function(responseData) {
 				$('#responseDiv2').html(responseData);
