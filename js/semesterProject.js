@@ -36,7 +36,7 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			type: 'get',
 			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json',
-			dataType:'jsonc',
+			dataType:'json',
 			success: function(data){
 			show_my_videos(data);
 			// success: function(responseData) {
