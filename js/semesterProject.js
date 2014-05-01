@@ -22,8 +22,10 @@ $(document).ready(function() {
 			               var link = getAttributeByIndex(this.player, 0); 
 			$('.feed-youtube .bdy .items').append("<li class='thumb-feature'><div class='img'><a href='"+ link +"'><img src='" + thumb + "' width='120' height='68' alt='" + title + "' /></a></div><div class='text'><h3><a href='" + link + "'>"+title+"</a></h3><p>" + count + " views - added " +  date  + " </p></div></li>");  
 			    });
-			   }
-			  });
+			},
+			error: function(responseData) {
+				console.log('the getYoutube.php ajax call failed');
+			}
 			});
 			
 			// Used to get an element from an object
@@ -37,7 +39,6 @@ $(document).ready(function() {
 			  }
 			  return null;
 			}
-			},
 			// type: 'get',
 			// url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
 			// success: function(responseData) {
@@ -48,9 +49,9 @@ $(document).ready(function() {
 			// 	});
 			// 	$('.content').fitVids();
 			// },
-			error: function(responseData) {
-				console.log('the getYoutube.php ajax call failed');
-			}
+			// error: function(responseData) {
+			// 	console.log('the getYoutube.php ajax call failed');
+			// }
 		});
 	});
 	$('form').bind('submit',function(e) {
