@@ -46,7 +46,7 @@ $(document).ready(function() {
 			  var artist = data.artist;
 			  var name = artist.name;
 			  var bio = artist.bio.summary;
-			  var thumbnail = artist.image[2];
+			  var thumbnail = artist.image[2][#text];
 			  var html = ['<h1>Biography of: '+name+'</h1><div class="item">'];
 			  html.push('<span class="thumbnail"><img src="'+thumbnail+'"/></span>');
 			  html.push('<span class="title">'+bio+'</span>');
