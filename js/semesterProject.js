@@ -5,53 +5,24 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
-	// Used to get an element from an object
-	function getAttributeByIndex(obj, index){
-	  var i = 0;
-	  for (var attr in obj){
-	    if (index === i){
-	      return obj[attr];
-	    }
-	    i++;
-	  }
-	  return null;
-	}
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2',
-			dataType: 'jsonp',
-			success: function(data){
-			               $.each(data.items, function(index) { 
-			               var myDateArray = this.updated.split("-");
-			               var date = 1+parseInt(myDateArray[1])+"/"+(myDateArray[2]).toString().substr(0,2)+"/"+myDateArray[0];
-			               var thumb = this.thumbnail.sqDefault;
-			               var count = this.viewCount; 
-			               var title = this.title;
-			               var link = getAttributeByIndex(this.player, 0); 
-			$('#responseDiv').html("<li class='thumb-feature'><div class='img'><a href='"+ link +"'><img src='" + thumb + "' width='120' height='68' alt='" + title + "' /></a></div><div class='text'><h3><a href='" + link + "'>"+title+"</a></h3><p>" + count + " views - added " +  date  + " </p></div></li>");  
-			    });
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
+			success: function(responseData) {
+				$('#responseDiv').html(responseData);
+				$('#page_container').pajinate({
+					num_page_links_to_display : 5,
+					items_per_page : 1
+				});
+				$('.content').fitVids();
 			},
 			error: function(responseData) {
 				console.log('the getYoutube.php ajax call failed');
 			}
-			});
-			// type: 'get',
-			// url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
-			// success: function(responseData) {
-			// 	$('#responseDiv').html(responseData);
-			// 	$('#page_container').pajinate({
-			// 		num_page_links_to_display : 5,
-			// 		items_per_page : 1
-			// 	});
-			// 	$('.content').fitVids();
-			// },
-			// error: function(responseData) {
-			// 	console.log('the getYoutube.php ajax call failed');
-			// }
-		// });
+		});
 	});
 	$('form').bind('submit',function(e) {
 		e.preventDefault();
