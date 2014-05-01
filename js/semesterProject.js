@@ -25,7 +25,7 @@ $(document).ready(function() {
 			type: 'get',
 			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val(),
 			success: function(responseData) {
-				showMyVideos(resonseData);
+				showMyVideos(responseData);
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
 					num_page_links_to_display : 5,
