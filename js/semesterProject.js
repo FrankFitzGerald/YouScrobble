@@ -23,9 +23,8 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'most_popular?v=2&alt=json',
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'most_popular?v=2&alt=json-in-script&callback=showMyVideos',
 			success: function(responseData) {
-				showMyVideos(responseData);
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
 					num_page_links_to_display : 5,
