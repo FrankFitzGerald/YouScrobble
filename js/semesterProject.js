@@ -20,7 +20,7 @@ $(document).ready(function() {
 			               var count = this.viewCount; 
 			               var title = this.title;
 			               var link = getAttributeByIndex(this.player, 0); 
-			$('.feed-youtube .bdy .items').append("<li class='thumb-feature'><div class='img'><a href='"+ link +"'><img src='" + thumb + "' width='120' height='68' alt='" + title + "' /></a></div><div class='text'><h3><a href='" + link + "'>"+title+"</a></h3><p>" + count + " views - added " +  date  + " </p></div></li>");  
+			$('#responseDiv').append("<li class='thumb-feature'><div class='img'><a href='"+ link +"'><img src='" + thumb + "' width='120' height='68' alt='" + title + "' /></a></div><div class='text'><h3><a href='" + link + "'>"+title+"</a></h3><p>" + count + " views - added " +  date  + " </p></div></li>");  
 			    });
 			},
 			error: function(responseData) {
