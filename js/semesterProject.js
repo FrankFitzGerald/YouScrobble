@@ -10,8 +10,8 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
-			type: 'post',
-			url: 'getYoutube.php',
+			type: 'get',
+			url: 'https://gdata.youtube.com/feeds/api/videos?q=$('#search').val()&max-resulst=10&v=2',
 			success: function(responseData) {
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
