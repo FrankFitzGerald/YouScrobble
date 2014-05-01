@@ -49,11 +49,11 @@ $(document).ready(function() {
 			  var thumbnails = artist.image;
 			  for (var i = 0; i < thumbnails.length; i++) {
 			  	var thumbnail = artist.image[i];
+			  }
 			  var html = ['<h1>Biography of: '+name+'</h1><div class="item">'];
 			  html.push('<span class="thumbnail"><img src="'+thumbnail = artist.image[2]+'"/></span>');
 			  html.push('<span class="title">'+bio+'</span>');
 			  html.push('</div>');
-			  }
 			  $("#responseDiv2").html(html.join(''));
 			},
 			error: function(data) {
