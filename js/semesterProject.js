@@ -27,7 +27,7 @@ $(document).ready(function() {
 	  }
 	  html.push('</ul>');
 	  console.log($("#responseDiv").html());
-	  $("#responseDiv").html();
+	  $("#responseDiv").html(html.join(''));
 	} 
     $('form').bind('submit',function(e) {
 		e.preventDefault();
