@@ -23,7 +23,7 @@ $(document).ready(function() {
 	  var html = ['<ul>'];
 	  for (var i = 0; i < entries.length; i++) {
 	    var entry = entries[i];
-	    var content = entry.content.$t;
+	    var content = entry.content.src;
 	    html.push('<li>', content, '</li>');
 	  }
 	  html.push('</ul>');
