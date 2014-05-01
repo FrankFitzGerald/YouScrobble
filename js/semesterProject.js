@@ -23,7 +23,7 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val(),
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'most_popular?v=2&alt=json',
 			success: function(responseData) {
 				showMyVideos(responseData);
 				$('#responseDiv').html(responseData);
