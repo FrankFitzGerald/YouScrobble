@@ -22,7 +22,7 @@ $(document).ready(function() {
 	  var html = ['<ul>'];
 	  for (var i = 0; i < entries.length; i++) {
 	    var entry = entries[i];
-	    var video = entry.content.src
+	    var video = entry.content.src;
 	    var content = '<object width="560" height="315"><param name="movie" value='+video+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="//www.youtube.com/v/wbB3lVyUvAM?hl=en_US&amp;version=3" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
 	    html.push('<li>', content, '</li>');
 	  }
