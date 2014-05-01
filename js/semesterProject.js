@@ -18,17 +18,6 @@ $(document).ready(function() {
 	  html.push('</ul>');
 	  $("#responseDiv").html(html.join(''));
 	} 
-	function show_artist_info(data) {
-	  var artist = data.artist;
-	  var name = artist.name;
-	  var thumbnail = artist.image[2];
-	  var bio = artist.bio.summary;
-	  var html = ['<h1>Biography of: '+name+'</h1><div class="item"'];
-	  html.push('<span class="thumbnail"><img src="+thumbnail+" , </li>');
-	  html.push('<span class="title">'+bio+'</span>');
-	  html.push('</div>');
-	  $("#responseDiv2").html(html.join(''));
-	}
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -57,7 +46,15 @@ $(document).ready(function() {
 			type: 'get',
 			url: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+$("#search").val()+'&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6&format=json',
 			success: function(data){
-			show_artist_info(data);
+			  var artist = data.artist;
+			  var name = artist.name;
+			  var thumbnail = artist.image[2];
+			  var bio = artist.bio.summary;
+			  var html = ['<h1>Biography of: '+name+'</h1><div class="item"'];
+			  html.push('<span class="thumbnail"><img src="'+thumbnail+'"/></span>');
+			  html.push('<span class="title">'+bio+'</span>');
+			  html.push('</div>');
+			  $("#responseDiv2").html(html.join(''));
 			},
 			error: function(data) {
 				console.log('the getLastFM.php ajax call failed');
