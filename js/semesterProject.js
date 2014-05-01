@@ -23,7 +23,7 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'most_popular?v=2&alt=json-in-script&callback=showMyVideos',
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
 			success: function(responseData) {
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
