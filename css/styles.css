@@ -412,7 +412,7 @@ input[type="submit"].solid:active {
 }
 
 a[href="frankfitzgerald.net"]{
-	float:right;
+	float: right !important;
 }
 
 /* =============================================================================
