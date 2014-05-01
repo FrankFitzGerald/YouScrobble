@@ -19,6 +19,7 @@ $(document).ready(function() {
 	// }
 	function show_my_videos(data) {
 	  var entries = data.feed.entry;
+	  console.log(entries);
 	  var html = ['<ul>'];
 	  for (var i = 0; i < entries.length; i++) {
 	    var entry = entries[i].content.src;
