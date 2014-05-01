@@ -17,7 +17,7 @@ $(document).ready(function() {
 	// 	});
 	// 	html.push('</ul>');
 	// }
-	function showMyVideos(data) {
+	function show_my_videos(data) {
 	  var feed = data.feed;
 	  var entries = feed.entry || [];
 	  var html = ['<ul>'];
