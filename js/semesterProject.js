@@ -20,11 +20,11 @@ $(document).ready(function() {
 	function show_my_videos(data) {
 	  var entries = data.feed.entry;
 	  console.log(entries);
-	  var html = ['<ul>'];
+	  var html = ['<ul class="content">'];
 	  for (var i = 0; i < entries.length; i++) {
 	    var entry = entries[i].content.src;
 	    console.log(entry);
-	    var content = '<div class="content"><object width="560" height="315"><param name="movie" value='+entry+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src='+entry+' type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>';
+	    var content = '<object width="560" height="315"><param name="movie" value='+entry+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src='+entry+' type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
 	    html.push('<li>', content, '</li>');
 	  }
 	  html.push('</ul>');
