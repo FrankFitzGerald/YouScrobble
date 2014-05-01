@@ -23,8 +23,8 @@ $(document).ready(function() {
 	  var html = ['<ul>'];
 	  for (var i = 0; i < entries.length; i++) {
 	    var entry = entries[i];
-	    var player = entry.player.$t;
-	    html.push('<li>', player, '</li>');
+	    var content = entry.content.$t;
+	    html.push('<li>', content, '</li>');
 	  }
 	  html.push('</ul>');
 	  $("#responseDiv").html(html.join(''));
