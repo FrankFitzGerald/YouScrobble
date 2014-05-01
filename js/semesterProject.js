@@ -11,7 +11,7 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			dataType: 'html',
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='$("#search").val(),
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val(),
 			success: function(responseData) {
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
