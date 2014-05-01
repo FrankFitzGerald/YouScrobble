@@ -5,6 +5,17 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
+	// Used to get an element from an object
+	function getAttributeByIndex(obj, index){
+	  var i = 0;
+	  for (var attr in obj){
+	    if (index === i){
+	      return obj[attr];
+	    }
+	    i++;
+	  }
+	  return null;
+	}
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -27,18 +38,6 @@ $(document).ready(function() {
 				console.log('the getYoutube.php ajax call failed');
 			}
 			});
-			
-			// Used to get an element from an object
-			function getAttributeByIndex(obj, index){
-			  var i = 0;
-			  for (var attr in obj){
-			    if (index === i){
-			      return obj[attr];
-			    }
-			    i++;
-			  }
-			  return null;
-			}
 			// type: 'get',
 			// url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
 			// success: function(responseData) {
