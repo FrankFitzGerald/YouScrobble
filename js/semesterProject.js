@@ -5,6 +5,18 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
+	function showMyVideos(data) {
+	  var feed = data.feed;
+	  var entries = feed.entry || [];
+	  var html = ['<ul>'];
+	  for (var i = 0; i < entries.length; i++) {
+	    var entry = entries[i];
+	    var title = entry.title.$t;
+	    html.push('<li>', title, '</li>');
+	  }
+	  html.push('</ul>');
+	  document.getElementById('videos').innerHTML = html.join('');
+	} 
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -13,6 +25,7 @@ $(document).ready(function() {
 			type: 'get',
 			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val(),
 			success: function(responseData) {
+				showMyVideos(resonseData);
 				$('#responseDiv').html(responseData);
 				$('#page_container').pajinate({
 					num_page_links_to_display : 5,
