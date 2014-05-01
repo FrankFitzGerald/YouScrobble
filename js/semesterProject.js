@@ -20,7 +20,6 @@ $(document).ready(function() {
 	} 
 	function show_artist_info(data) {
 	  var artist = data.artist;
-	  console.log(entries);
 	  var name = artist.name;
 	  var thumbnail = artist.image[2];
 	  var bio = artist.bio.summary;
@@ -45,7 +44,7 @@ $(document).ready(function() {
 			});
 			$('.content').fitVids();
 			},
-			error: function(responseData) {
+			error: function(data) {
 				console.log('the getYoutube.php ajax call failed');
 			}
 		});
@@ -60,7 +59,7 @@ $(document).ready(function() {
 			success: function(data){
 			show_artist_info(data);
 			},
-			error: function(responseData) {
+			error: function(data) {
 				console.log('the getLastFM.php ajax call failed');
 			}
 		});
