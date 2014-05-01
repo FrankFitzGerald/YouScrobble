@@ -1,7 +1,7 @@
 <?php
 
     // Encode post so stuff works
-    $post = urlencode($_POST['search']);
+    $post = urlencode($_GET['search']);
     $url  = "http://ws.audioscrobbler.com/2.0/";
     $url .= "?method=artist.getinfo";
     $url .= "&artist=".$post;
