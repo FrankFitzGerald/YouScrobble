@@ -16,7 +16,7 @@ $(document).ready(function() {
 		html.push('</a></li>');
 		});
 		html.push('</ul>');
-		$("#videos").html(html.join(''));
+		$("#responseDiv").html(html.join(''));
 	}
     $('form').bind('submit',function(e) {
 		e.preventDefault();
