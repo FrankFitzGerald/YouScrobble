@@ -24,7 +24,7 @@ $(document).ready(function() {
 			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2',
 			dataType: 'jsonp',
 			success: function(data){
-			               $.each(data.data.items, function(index) { 
+			               $.each(data.items, function(index) { 
 			               var myDateArray = this.updated.split("-");
 			               var date = 1+parseInt(myDateArray[1])+"/"+(myDateArray[2]).toString().substr(0,2)+"/"+myDateArray[0];
 			               var thumb = this.thumbnail.sqDefault;
