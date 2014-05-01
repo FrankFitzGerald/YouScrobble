@@ -1,5 +1,5 @@
 /* ==|== My Javascript =====================================================
-   Author: Frank FitzGerald DIG4503 Rapid App Web Development - Spring Semester 2012
+   Author: Frank FitzGerald
    ========================================================================== */
 
 $(document).ready(function() {
@@ -47,7 +47,7 @@ $(document).ready(function() {
 			  var name = artist.name;
 			  var bio = artist.bio.summary;
 			  var html = ['<h1>Biography of: '+name+'</h1><div class="item">'];
-			  html.push('<span class="thumbnail"><img src="'+artist[0].image[2]+'"/></span>');
+			  html.push('<span class="thumbnail"><img src="'+artist.image[2][0]+'"/></span>');
 			  html.push('<span class="title">'+bio+'</span>');
 			  html.push('</div>');
 			  $("#responseDiv2").html(html.join(''));
