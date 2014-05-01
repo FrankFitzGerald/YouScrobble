@@ -28,7 +28,7 @@ $(document).ready(function() {
 	    html.push('<li>', content, '</li>');
 	  }
 	  html.push('</ul>');
-	  $("#responseDiv").html(html.join(''));
+	  $("#responseDiv").html();
 	} 
     $('form').bind('submit',function(e) {
 		e.preventDefault();
