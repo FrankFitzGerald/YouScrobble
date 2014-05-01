@@ -5,19 +5,30 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
-	function show_my_videos(data){
-		html = ['<ul id="youtube-videos">'];
-		$(data.feed.entry).each(function(entry){
-		url = this.link[0].href;
-		url_thumbnail = this.media$group.media$thumbnail[3].url;
-		description = this.media$group.media$description.$t;
-		html.push('<li><a href="'+url+'">');
-		html.push('<img src="'+url_thumbnail+'" alt="'+description+'">');
-		html.push('</a></li>');
-		});
-		html.push('</ul>');
-		$("#responseDiv").html(html.join(''));
-	}
+	// function show_my_videos(data){
+	// 	html = ['<ul id="youtube-videos">'];
+	// 	$(data.feed.entry).each(function(entry){
+	// 	url = this.link[0].href;
+	// 	url_thumbnail = this.media$group.media$thumbnail[3].url;
+	// 	description = this.media$group.media$description.$t;
+	// 	html.push('<li><a href="'+url+'">');
+	// 	html.push('<img src="'+url_thumbnail+'" alt="'+description+'">');
+	// 	html.push('</a></li>');
+	// 	});
+	// 	html.push('</ul>');
+	// }
+	function showMyVideos(data) {
+	  var feed = data.feed;
+	  var entries = feed.entry || [];
+	  var html = ['<ul>'];
+	  for (var i = 0; i < entries.length; i++) {
+	    var entry = entries[i];
+	    var title = entry.title.$t;
+	    html.push('<li>', title, '</li>');
+	  }
+	  html.push('</ul>');
+	  $("#responseDiv").html(html.join(''));
+	} 
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
