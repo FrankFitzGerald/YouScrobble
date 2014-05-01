@@ -5,19 +5,35 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
+	function show_my_videos(data){
+		html = ['<ul id="youtube-videos">'];
+		$(data.feed.entry).each(function(entry){
+		url = this.link[0].href;
+		url_thumbnail = this.media$group.media$thumbnail[3].url;
+		description = this.media$group.media$description.$t;
+		html.push('<li><a href="'+url+'">');
+		html.push('<img src="'+url_thumbnail+'" alt="'+description+'">');
+		html.push('</a></li>');
+		});
+		html.push('</ul>');
+		$("#videos").html(html.join(''));
+	}
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script&callback=showMyVideos',
-			success: function(responseData) {
-				$('#responseDiv').html(responseData);
-				$('#page_container').pajinate({
-					num_page_links_to_display : 5,
-					items_per_page : 1
-				});
-				$('.content').fitVids();
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json-in-script,
+			dataType:'jsonp',
+			success: function(data){
+			show_my_videos(data);
+			// success: function(responseData) {
+			// $('#responseDiv').html(responseData);
+			$('#page_container').pajinate({
+				num_page_links_to_display : 5,
+				items_per_page : 1
+			});
+			$('.content').fitVids();
 			},
 			error: function(responseData) {
 				console.log('the getYoutube.php ajax call failed');
