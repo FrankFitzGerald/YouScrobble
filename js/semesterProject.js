@@ -135,7 +135,7 @@ var visSimilarArtists = function(){
 
     //last.fm settings
 
-    var apiKey = "YOUR_API_KEY";
+    var apiKey = "a4fa2456aad2cd68975c95fd9f3fc3a6";
 
        
 
