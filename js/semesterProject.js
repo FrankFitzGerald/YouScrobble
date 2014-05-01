@@ -43,7 +43,7 @@ $(document).ready(function() {
 			type: 'get',
 			url: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+$("#search").val()+'&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6&format=json',
 			success: function(data){
-			  var artists = data.artist;
+			  var artist = data.artist;
 			  var name = artist.name;
 			  var bio = artist.bio.summary;
 			  for (var i = 0; i < entries.length; i++) {
