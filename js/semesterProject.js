@@ -5,19 +5,6 @@
 $(document).ready(function() {
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
-	function show_my_videos(data) {
-	  var entries = data.feed.entry;
-	  console.log(entries);
-	  var html = ['<ul class="content">'];
-	  for (var i = 0; i < entries.length; i++) {
-	    var entry = entries[i].content.src;
-	    console.log(entry);
-	    var content = '<object width="560" height="315"><param name="movie" value='+entry+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src='+entry+' type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
-	    html.push('<li>', content, '</li>');
-	  }
-	  html.push('</ul>');
-	  $("#responseDiv").html(html.join(''));
-	} 
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -26,7 +13,17 @@ $(document).ready(function() {
 			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json&category=Music',
 			dataType:'json',
 			success: function(data){
-			show_my_videos(data);
+			  var entries = data.feed.entry;
+			  console.log(entries);
+			  var html = ['<ul class="content">'];
+			  for (var i = 0; i < entries.length; i++) {
+			    var entry = entries[i].content.src;
+			    console.log(entry);
+			    var content = '<object width="560" height="315"><param name="movie" value='+entry+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src='+entry+' type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
+			    html.push('<li>', content, '</li>');
+			  }
+			  html.push('</ul>');
+			  $("#responseDiv").html(html.join(''));
 			$('#page_container').pajinate({
 				num_page_links_to_display : 5,
 				items_per_page : 1
@@ -48,7 +45,7 @@ $(document).ready(function() {
 			success: function(data){
 			  var artist = data.artist;
 			  var name = artist.name;
-			  var thumbnail = artist.image[2];
+			  var thumbnail = artist.image['medium'];
 			  var bio = artist.bio.summary;
 			  var html = ['<h1>Biography of: '+name+'</h1><div class="item"'];
 			  html.push('<span class="thumbnail"><img src="'+thumbnail+'"/></span>');
