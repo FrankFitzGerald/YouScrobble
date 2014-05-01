@@ -21,7 +21,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json',
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2',
 			dataType: 'jsonp',
 			success: function(data){
 			               $.each(data.data.items, function(index) { 
