@@ -26,6 +26,7 @@ $(document).ready(function() {
 	    html.push('<li>', content, '</li>');
 	  }
 	  html.push('</ul>');
+	  console.log($("#responseDiv").html(););
 	  $("#responseDiv").html();
 	} 
     $('form').bind('submit',function(e) {
