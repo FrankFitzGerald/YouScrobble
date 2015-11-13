@@ -1,11 +1,11 @@
 <?php
 
     // Encode post so stuff works
-    $post = urlencode($_POST['search']);
+    $post = urlencode($_GET['search']);
     $url  = "http://ws.audioscrobbler.com/2.0/";
     $url .= "?method=artist.getinfo";
     $url .= "&artist=".$post;
-    $url .= "&api_key=YOUR_API_KEY";
+    $url .= "&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6";
     $url .= "&autocorrect=1";
     // print $url;
     // http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=ARTIST&api_key=YOUR_API_KEY

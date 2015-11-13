@@ -1,5 +1,5 @@
 /* ==|== My Javascript =====================================================
-   Author: Frank FitzGerald DIG4503 Rapid App Web Development - Spring Semester 2012
+   Author: Frank FitzGerald
    ========================================================================== */
 
 $(document).ready(function() {
@@ -9,18 +9,28 @@ $(document).ready(function() {
 		e.preventDefault();
 		$.ajax({
 			data: 'search=' + $('#search').val(),
-			dataType: 'html',
-			type: 'post',
-			url: 'getYoutube.php',
-			success: function(responseData) {
-				$('#responseDiv').html(responseData);
-				$('#page_container').pajinate({
-					num_page_links_to_display : 5,
-					items_per_page : 1
-				});
-				$('.content').fitVids();
+			type: 'get',
+			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json&category=Music',
+			dataType:'json',
+			success: function(data){
+			  var entries = data.feed.entry;
+			  console.log(entries);
+			  var html = ['<ul class="content">'];
+			  for (var i = 0; i < entries.length; i++) {
+			    var entry = entries[i].content.src;
+			    console.log(entry);
+			    var content = '<object width="560" height="315"><param name="movie" value='+entry+'></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src='+entry+' type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
+			    html.push('<li>', content, '</li>');
+			  }
+			  html.push('</ul>');
+			  $("#responseDiv").html(html.join(''));
+			$('#page_container').pajinate({
+				num_page_links_to_display : 5,
+				items_per_page : 1
+			});
+			$('.content').fitVids();
 			},
-			error: function(responseData) {
+			error: function(data) {
 				console.log('the getYoutube.php ajax call failed');
 			}
 		});
@@ -29,13 +39,21 @@ $(document).ready(function() {
 		e.preventDefault();
 		$.ajax({
 			data: 'search=' + $('#search').val(),
-			dataType: 'html',
-			type: 'post',
-			url: 'getLastFM.php',
-			success: function(responseData) {
-				$('#responseDiv2').html(responseData);
+			dataType: 'json',
+			type: 'get',
+			url: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+$("#search").val()+'&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6&format=json',
+			success: function(data){
+			  var artist = data.artist;
+			  var name = artist.name;
+			  var bio = artist.bio.summary;
+			  var thumbnail = artist.image[2];
+			  var html = ['<h1>Biography of: '+name+'</h1><div class="item">'];
+			  html.push('<span class="thumbnail"><img src="'+thumbnail["#text"]+'"/></span>');
+			  html.push('<span class="title">'+bio+'</span>');
+			  html.push('</div>');
+			  $("#responseDiv2").html(html.join(''));
 			},
-			error: function(responseData) {
+			error: function(data) {
 				console.log('the getLastFM.php ajax call failed');
 			}
 		});
@@ -135,7 +153,7 @@ var visSimilarArtists = function(){
 
     //last.fm settings
 
-    var apiKey = "YOUR_API_KEY";
+    var apiKey = "a4fa2456aad2cd68975c95fd9f3fc3a6";
 
        
 
