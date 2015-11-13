@@ -10,8 +10,8 @@
     // Encode post so stuff works
     $post = urlencode($_POST['search']);
     $nospaces = str_replace('+','', $post);
-    $url  = "http://gdata.youtube.com/feeds/api/videos/-/Music/-cover/-teaser/-Cover/-Teaser/-trailer/-Trailer/-gig/-Gig/-fuse/-Golden/-God/-Awards/-Forbes/-Interview";
-    $url .= "?q=".$post;
+    $url  = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&";
+    $url .= "?q=".$post .= "&type=video&videoDefinition=high";
     // $url .= "&author=".$nospaces;
     // print $url;
     // http://gdata.youtube.com/feeds/api/videos/-/Music/-cover/-teaser/-Cover/-Teaser/-trailer/-Trailer/-gig/-Gig/-fuse/-Golden/-God/-Awards?q=SOME_ARTIST
