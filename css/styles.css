@@ -277,7 +277,7 @@ input[type="submit"].solid:active {
 .active_page{
 	background-color:white !important;
 	color:black !important;
-}	
+}
 
 .content, .alt_content{
 	color: black;
@@ -294,7 +294,7 @@ input[type="submit"].solid:active {
 
 .hovered {
 
-	cursor: pointer;	
+	cursor: pointer;
 
 	}
 
@@ -417,7 +417,7 @@ input[type="submit"].solid:active {
 
 @media only screen and (max-width: 480px) {
 
-	
+
 	#viewport{
 		height: 45%;
 		width: 100%;
@@ -426,7 +426,7 @@ input[type="submit"].solid:active {
 	form {
 		width: auto;
 	}
-	
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -445,7 +445,7 @@ input[type="submit"].solid:active {
 /* ============
     WIDE: Menu
    ============ */
-	
+
 	#title{
 		float:left;
 	}
@@ -468,7 +468,7 @@ input[type="submit"].solid:active {
 		float:left;
 		width:57%;
 	}
-		
+
 	#main aside{
 		float:right;
 		width:28%;
@@ -504,7 +504,7 @@ input[type="submit"].solid:active {
 /* =============================================================================
    Print Styles
    ========================================================================== */
- 
+
 @media print {
   * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
   a, a:visited { text-decoration: underline; }
