@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
-			data: 'search=' + $('#search').val(),
+			//data: 'search=' + $('#search').val(),
 			type: 'get',
 			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&?q='+$("#search").val()+'&type=video&videoDefinition=high',
 			dataType:'json',
