@@ -10,7 +10,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'search=' + $('#search').val(),
 			type: 'get',
-			url: 'https://gdata.youtube.com/feeds/api/videos?q='+$("#search").val()+'&most_popular&v=2&alt=json&category=Music',
+			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&?q='+$("#search").val()+'&type=video&videoDefinition=high',
 			dataType:'json',
 			success: function(data){
 			  var entries = data.feed.entry;
@@ -58,10 +58,10 @@ $(document).ready(function() {
 			}
 		});
 	});
-}); 
+});
 
 // Window load event used just in case window height is dependant upon img
-$(window).bind("load", function() { 
+$(window).bind("load", function() {
 
        var footerHeight = 0,
            footerTop = 0,
@@ -93,7 +93,7 @@ $(window).bind("load", function() {
 
 });
 
-/* 
+/*
 
  * @projectDescription	Visual Similar Artists
 
@@ -137,7 +137,7 @@ var visSimilarArtists = function(){
 
     var allData, val, sys, re;
 
-	
+
 
 	//Particle Colo(u)rs
 
@@ -149,13 +149,13 @@ var visSimilarArtists = function(){
 
 	};
 
-    
+
 
     //last.fm settings
 
     var apiKey = "a4fa2456aad2cd68975c95fd9f3fc3a6";
 
-       
+
 
     return {
 
@@ -187,7 +187,7 @@ var visSimilarArtists = function(){
 
             });
 
-            
+
 
             //Start the renderer
 
@@ -201,13 +201,13 @@ var visSimilarArtists = function(){
 
             var url = "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + word + "&api_key=" + apiKey + "&autocorrect=1";
 
-            
+
 
 			//Clear all previous particles
 
 			sys.prune(function(node, from, to){return true;});
 
-			
+
 
             $.ajax({
 
@@ -233,17 +233,17 @@ var visSimilarArtists = function(){
 
             var original = $("#search").val();
 
-            
+
 
 			//Store all data recieved
 
             allData = data;
-            
+
 
             //Add root node
 
             sys.addNode('home', {label:original, use:'home', alpha:'1', color: particleColour.root, expanded: true, level: 0, parent: null});
-            
+
             var artists = new Array();
             $.each($(allData), function(i){
             	$(this).find('name').each(function(i){
@@ -274,7 +274,7 @@ var visSimilarArtists = function(){
 
 		// 	$re.find("p span").text(newword).end().show();
 
-			
+
 
 		// 	//Close if no
 
@@ -286,7 +286,7 @@ var visSimilarArtists = function(){
 
 		// 	});
 
-			
+
 
 		// 	$re.find(".yes").click(function(e){
 
@@ -316,19 +316,19 @@ var visSimilarArtists = function(){
 
 				var clicked = sys.getNode(name);
 
-				
+
 
 				//Clicked parent node
 
 				var parent = sys.getNode(clicked.data.parent);
 
-				
+
 
 				//Parent is nolonger expanded
 
 				parent.data.expanded = false;
 
-				
+
 
 				//Remove Children
 
@@ -342,7 +342,7 @@ var visSimilarArtists = function(){
 
 				});
 
-				
+
 
 				//Remove clicked node too
 
@@ -365,7 +365,7 @@ var Renderer = function(){
     var canvas = document.getElementById("viewport");
 
 	var dom = $("#viewport");
-    
+
 
     //Screen size
 
@@ -377,11 +377,11 @@ var Renderer = function(){
 
     var particleSystem;
 
-    
+
 
    var gfx = arbor.Graphics(canvas);
 
-    
+
 
     return {
 
@@ -395,13 +395,13 @@ var Renderer = function(){
 
             particleSystem.screenPadding(60);
 
-            
+
 
             //Node dragging
 
             this.initMouseHandling();
 
-			
+
 
 			//On window resize
 
@@ -415,7 +415,7 @@ var Renderer = function(){
 
 			cHeight = window.innerHeight;
 
-			
+
 
 			particleSystem.screenSize(cWidth, cHeight);
 
@@ -429,7 +429,7 @@ var Renderer = function(){
 
             context.fillRect(0,0, cWidth, cHeight);
 
-            
+
 
             //The lines between nodes
 
@@ -451,7 +451,7 @@ var Renderer = function(){
 
             });
 
-            
+
 
             //The style of each node
 
@@ -459,7 +459,7 @@ var Renderer = function(){
 
                 var w;
 
-                
+
 
                 //Create our different types of nodes
 
@@ -505,7 +505,7 @@ var Renderer = function(){
 
 					nearest = particleSystem.nearest(_mouseP);
 
-					
+
 
 					if(!nearest.node){
 
@@ -513,7 +513,7 @@ var Renderer = function(){
 
 					}
 
-					
+
 
 					if(!(nearest.node.data.use === 'home')){
 
@@ -543,7 +543,7 @@ var Renderer = function(){
 
                     dragged = particleSystem.nearest(_mouseP);
 
-                    
+
 
                     if (dragged && dragged.node !== null){
 
@@ -551,7 +551,7 @@ var Renderer = function(){
 
 						var nName, nLevel;
 
-						
+
 
                         if(!dragged.node.data.expanded){
 
@@ -605,7 +605,7 @@ var Renderer = function(){
 
                     var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
 
-                    
+
 
                     if (dragged && dragged.node !== null){
 
@@ -615,7 +615,7 @@ var Renderer = function(){
 
                     }
 
-                    
+
 
                     return false;
 
@@ -670,4 +670,3 @@ var Renderer = function(){
 jQuery(function($){
     visSimilarArtists.init();
 });
-
