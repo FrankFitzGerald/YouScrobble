@@ -8,9 +8,9 @@ $(document).ready(function() {
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
-			//data: 'search=' + $('#search').val(),
+			data: 'q='+$("#search").val()+'&type=video&videoDefinition=high',
 			type: 'get',
-			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&?q='+$("#search").val()+'&type=video&videoDefinition=high',
+			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&',
 			dataType:'json',
 			success: function(data){
 			  var entries = data.feed.entry;
@@ -32,7 +32,7 @@ $(document).ready(function() {
 			},
 			error: function(data) {
 				console.log('the getYoutube.php ajax call failed');
-				console.log($('#search'));
+				console.log($('#search').val());
 			}
 		});
 	});
