@@ -12,7 +12,7 @@ $(document).ready(function() {
 			data: 'q='+$("#search").val()+'&type=video&videoDefinition=high',
 			type: 'get',
 			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&',
-			dataType:'json',
+			dataType:'jsonp',
 			success: function(data){
 			  var entries = data.feed.entry;
 			  console.log(entries);
