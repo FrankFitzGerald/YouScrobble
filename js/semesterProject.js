@@ -32,7 +32,7 @@ $(document).ready(function() {
 			},
 			error: function(data) {
 				console.log('the getYoutube.php ajax call failed');
-				console.log($('#search');
+				console.log($('#search'));
 			}
 		});
 	});
