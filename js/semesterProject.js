@@ -3,7 +3,7 @@
    ========================================================================== */
 
 $(document).ready(function() {
-	console.log("Why Google why");
+	console.log("object it is");
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
     $('form').bind('submit',function(e) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
 			  for (var i = 0; i < items.length; i++) {
 			    var item = items[i].id.videoId;
 			    console.log(item);
-			    var content = '<iframe id="ytplayer" type="text/html"  width="560" height="315" src="http://www.youtube.com/embed/"'+item+' frameborder="0"/>';
+			    var content = '<object width="560" height="315"><param name="movie" value="https://www.youtube.com/v/'+item+'?version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/'+item+'?version=3" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>';
 			    html.push('<li>', content, '</li>');
 			  }
 			  html.push('</ul>');
