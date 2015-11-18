@@ -3,7 +3,7 @@
    ========================================================================== */
 
 $(document).ready(function() {
-	console.log("hola");
+	console.log("try again");
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
     $('form').bind('submit',function(e) {
@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'q='+$("#search").val()+'&type=video&videoDefinition=high',
 			type: 'get',
-			url: 'https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&order=viewCount&',
+			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&',
 			dataType:'jsonp',
 			success: function(data){
 			  var entries = data.feed.entry;
