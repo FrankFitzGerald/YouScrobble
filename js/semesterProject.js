@@ -21,7 +21,7 @@ $(document).ready(function() {
 			  for (var i = 0; i < items.length; i++) {
 			    var item = items[i].id.videoId;
 			    console.log(item);
-			    var content = '<iframe id="ytplayer" type="text/html"  width="560" height="315" src="http://www.youtube.com/embed/"'+item+" frameborder="0"/>";
+			    var content = '<iframe id="ytplayer" type="text/html"  width="560" height="315" src="http://www.youtube.com/embed/"'+item+' frameborder="0"/>';
 			    html.push('<li>', content, '</li>');
 			  }
 			  html.push('</ul>');
