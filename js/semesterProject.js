@@ -3,18 +3,18 @@
    ========================================================================== */
 
 $(document).ready(function() {
-	console.log("try again");
+	console.log("updated xml");
 	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
     $('form').bind('submit',function(e) {
 		e.preventDefault();
 		$.ajax({
-			data: 'q='+$("#search").val()+'&type=video&videoDefinition=high',
+			data: 'q='+$("#search").val(),
 			type: 'get',
-			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&',
+			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&type=video&videoDefinition=high',
 			dataType:'jsonp',
 			success: function(data){
-			  var entries = data.feed.entry;
+			  var entries = data.items.id;
 			  console.log(entries);
 			  var html = ['<ul class="content">'];
 			  for (var i = 0; i < entries.length; i++) {
