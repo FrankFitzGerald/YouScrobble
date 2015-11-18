@@ -14,7 +14,7 @@ $(document).ready(function() {
 			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&type=video&videoDefinition=high',
 			dataType:'jsonp',
 			success: function(data){
-			  var entries = data.items.id;
+			  var entries = data.items.id.videoid;
 			  console.log(entries);
 			  var html = ['<ul class="content">'];
 			  for (var i = 0; i < entries.length; i++) {
