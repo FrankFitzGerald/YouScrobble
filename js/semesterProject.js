@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: 'q='+$("#search").val(),
 			type: 'get',
-			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&type=video&videoDefinition=high',
+			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&type=video&videoDefinition=high&key=AIzaSyA5t5WIb_Mtp9L4g0_Uk8HwB3WM_D-NAGM',
 			dataType:'jsonp',
 			success: function(data){
 				console.log(data);
