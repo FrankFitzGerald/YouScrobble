@@ -2,7 +2,7 @@
 
     // Encode post so stuff works
     $post = urlencode($_GET['search']);
-    $url  = "http://ws.audioscrobbler.com/2.0/";
+    $url  = "https://ws.audioscrobbler.com/2.0/";
     $url .= "?method=artist.getinfo";
     $url .= "&artist=".$post;
     $url .= "&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6";
@@ -29,11 +29,11 @@
     <div class="item">
 		<span class="thumbnail">
 			<img src="<?php echo $thumbnail;?>"/>
-		</span> 
+		</span>
         <span class="title">
             <?php echo $bio ?>
         </span>
-	</div>      
+	</div>
 <?php
     }
 ?>

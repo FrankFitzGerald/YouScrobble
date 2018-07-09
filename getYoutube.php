@@ -32,7 +32,7 @@
 <?
     foreach ($xmlObject->entry as $entry) {
       // get nodes in media: namespace for media information
-      $media = $entry->children('http://search.yahoo.com/mrss/');
+      $media = $entry->children('https://search.yahoo.com/mrss/');
 
       // get video player URL for YouTube
       $attrs = $media->group->player->attributes();
@@ -51,18 +51,18 @@
       $thumbnail = $attrs['url'];
 
       // get <yt:duration> node for video length
-      $yt = $media->children('http://gdata.youtube.com/schemas/2007');
+      $yt = $media->children('https://gdata.youtube.com/schemas/2007');
       $attrs = $yt->duration->attributes();
       $length = $attrs['seconds'];
 
 
       // get <yt:stats> node for viewer statistics
-      $yt = $entry->children('http://gdata.youtube.com/schemas/2007');
+      $yt = $entry->children('https://gdata.youtube.com/schemas/2007');
       $attrs = $yt->statistics->attributes();
       $viewCount = $attrs['viewCount'];
 
       // get <gd:rating> node for video ratings
-      $gd = $entry->children('http://schemas.google.com/g/2005');
+      $gd = $entry->children('https://schemas.google.com/g/2005');
       if ($gd->rating) {
         $attrs = $gd->rating->attributes();
         $rating = $attrs['average'];
@@ -73,7 +73,7 @@
       <li>
         <span class="title">
           <!-- <a href="<?php echo $watch; ?>"><?php echo $media->group->title; ?></a> -->
-          <a href="http://www.youtube.com/embed/<?php echo $videoID; ?>"><?php echo $media->group->title; ?></a>
+          <a href="https://www.youtube.com/embed/<?php echo $videoID; ?>"><?php echo $media->group->title; ?></a>
         </span>
 <!--      <object width="425" height="350">
       <param name="movie" value="<?php echo $videoURL; ?>"></param>
@@ -81,7 +81,7 @@
       <embed src="<?php echo $videoURL; ?>" type="application/x-shockwave-flash" wmode="transparent"
       width="425" height="350"></embed>
     </object> -->
-      <iframe class="youtube-player" type="text/html" width="425" height="350" src="http://www.youtube.com/embed/<?php echo $videoID; ?>" frameborder="0" allowfullscreen="true">
+      <iframe class="youtube-player" type="text/html" width="425" height="350" src="https://www.youtube.com/embed/<?php echo $videoID; ?>" frameborder="0" allowfullscreen="true">
       </iframe>
       <p>
 <!--         <span class="thumbnail">
@@ -100,5 +100,5 @@
 <?php
 }
 ?>
- 
+
     </ul>
