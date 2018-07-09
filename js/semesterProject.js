@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 	console.log("object it is");
-	$('<a id="html5badge" href="http://www.w3.org/html/logo/" target="new"><img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
+	$('<a id="html5badge" href="https://www.w3.org/html/logo/" target="new"><img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics"></a>').insertBefore($('#header-container header'));
 	$('#html5badge').css({'position': 'absolute', 'top': '0', 'right': '0'});
     $('form').bind('submit',function(e) {
 		e.preventDefault();
@@ -44,7 +44,7 @@ $(document).ready(function() {
 			data: 'search=' + $('#search').val(),
 			dataType: 'json',
 			type: 'get',
-			url: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+$("#search").val()+'&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6&format=json',
+			url: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+$("#search").val()+'&api_key=a4fa2456aad2cd68975c95fd9f3fc3a6&format=json',
 			success: function(data){
 			  var artist = data.artist;
 			  var name = artist.name;
@@ -202,7 +202,7 @@ var visSimilarArtists = function(){
 
         wordRequest:function(word){
 
-            var url = "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + word + "&api_key=" + apiKey + "&autocorrect=1";
+            var url = "https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + word + "&api_key=" + apiKey + "&autocorrect=1";
 
 
 
